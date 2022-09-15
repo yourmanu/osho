@@ -1,6 +1,7 @@
 global using Osho.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using Osho.Server.Data;
+global using Osho.Server.Services.ProductService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 
@@ -15,6 +16,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<IProductService, ProductService>();
+
 
 //swagger support
 builder.Services.AddEndpointsApiExplorer();
